@@ -1,0 +1,186 @@
+body {
+    /* 深い青の背景から、フェルトのような暗めの緑に変更 */
+    background-color: #35654d; /* 落ち着いた緑色 */
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 画面中央に配置 */
+    min-height: 100vh;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 20px; /* 少し余白を持たせる */
+}
+
+.game-container {
+    text-align: center;
+    padding: 40px; /* パディングを増やす */
+    border-radius: 20px; /* 角を丸くする */
+    /* ポーカーテーブルのフェルトのような緑色に、少し深みを持たせる */
+    background-color: #3e7b5b; /* やや明るい緑 */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), /* 強い影で奥行きを出す */
+                inset 0 0 20px rgba(0, 0, 0, 0.5); /* 内側の影でフェルト感を出す */
+    max-width: 900px; /* 横幅を広げる */
+    width: 95%;
+    height: auto; 
+    border: 5px solid #a87e2b; /* ゴールドのテーブル縁 */
+    box-sizing: border-box; /* パディングとボーダーを幅に含める */
+}
+
+h1 {
+    color: #ffeb3b; /* ゴールドに近い黄色 */
+    text-transform: uppercase;
+    letter-spacing: 3px; /* レタースペーシングを増やす */
+    border-bottom: 3px solid #a87e2b; /* ゴールドのライン */
+    padding-bottom: 15px; /* パディングを増やす */
+    margin-bottom: 30px; /* マージンを増やす */
+    font-size: 2.2em; /* フォントサイズを大きく */
+}
+
+h2 {
+    color: #ffeb3b; /* ゴールド */
+    font-weight: 400; /* 少し太く */
+    font-size: 1.4em; /* 少し大きく */
+    margin-bottom: 15px;
+}
+
+.hand {
+    margin: 25px 0; /* マージンを増やす */
+    padding: 15px; /* パディングを増やす */
+    border-radius: 12px; /* 角を丸く */
+    /* 薄いゴールドの枠線 */
+    border: 2px solid #a87e2b; 
+    background-color: rgba(0, 0, 0, 0.3); /* 透明感のある暗い背景 */
+}
+
+.community-cards h2 {
+    color: #ffd700; /* コミュニティカードを明るいゴールドで強調 */
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* カード間のスペースを増やす */
+    min-height: 130px; /* 高さを少し増やす */
+    flex-wrap: wrap; /* カードが多くなった時に折り返す */
+}
+
+.card {
+    width: 80px; /* カードの幅を大きく */
+    height: 120px; /* カードの高さを大きく */
+    border-radius: 8px; /* 角を丸く */
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.6); /* 影を強く */
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    border: 4px solid #fdd835; /* 明るいゴールドの枠線 */
+    transition: transform 0.2s ease-in-out; /* トランジションを滑らかに */
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02); /* ホバー時に少し浮き上がり、拡大 */
+}
+
+/* ポット表示のスタイル */
+.pot-display {
+    margin-top: 20px; /* マージンを増やす */
+    font-size: 1.5em; /* フォントサイズを大きく */
+    font-weight: bold;
+    color: #fdd835; /* 明るいゴールド */
+    padding: 10px 20px; /* パディングを増やす */
+    border: 3px solid #fdd835; /* 明るいゴールドの枠線 */
+    border-radius: 8px; /* 角を丸く */
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.2); /* ポットの背景 */
+}
+
+/* プレイヤーチップ表示のスタイル */
+.chip-info {
+    margin-top: 10px; /* マージンを増やす */
+    font-size: 1.2em; /* フォントサイズを大きく */
+    color: #bdbdbd;
+}
+
+/* アクションボタンとゲーム進行ボタンの共通スタイル */
+.action-controls button, .game-controls button {
+    padding: 12px 22px; /* パディングを増やす */
+    font-size: 16px; /* フォントサイズを大きく */
+    cursor: pointer;
+    margin: 8px 5px; /* マージンを増やす */
+    border: none;
+    border-radius: 8px; /* 角を丸く */
+    background-color: #fdd835; /* 少し濃い目の黄色 */
+    color: #212121;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 5px #c5ae00; /* 影を強く */
+    transition: all 0.15s ease-out; /* トランジションを滑らかに */
+}
+
+.action-controls button:hover:not(:disabled), .game-controls button:hover:not(:disabled) {
+    background-color: #ffeb3b; /* ホバーで少し明るく */
+    transform: translateY(-2px); /* わずかに浮き上がらせる */
+}
+
+.action-controls button:active, .game-controls button:active {
+    box-shadow: 0 2px #c5ae00;
+    transform: translateY(3px); /* 押された感を強く */
+}
+
+.action-controls button:disabled {
+    background-color: #555;
+    color: #aaa;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#player-1-section h2 {
+    color: #4CAF50; /* プレイヤーのタイトルを緑で強調 */
+}
+
+#game-message {
+    margin-top: 30px; /* マージンを増やす */
+    font-size: 1.2em; /* フォントサイズを大きく */
+    font-weight: bold;
+    color: #8bc34a; /* メッセージを明るい緑で表示 */
+    padding: 12px; /* パディングを増やす */
+    border: 2px dashed #8bc34a; /* 枠線を太く */
+    border-radius: 8px; /* 角を丸く */
+    background-color: rgba(0, 0, 0, 0.2); /* メッセージの背景 */
+}
+
+#status-message {
+    /* 状態表示専用 */
+    font-size: 1.4em; /* フォントサイズを大きく */
+    color: #ffeb3b;
+    margin-bottom: 25px !important;
+}
+
+/* 勝利メッセージオーバーレイの調整 */
+#winner-message-overlay {
+    font-size: 7vw; /* 画面サイズに合わせてさらに大きく */
+    text-shadow: 0 0 15px #fdd835, 0 0 25px rgba(255, 255, 0, 0.7); /* より豪華な影 */
+    background-color: rgba(0, 0, 0, 0.9); /* 背景をより暗く */
+}
+
+#winner-message-overlay div:first-child {
+    font-size: 1.8em; /* WIN!!の部分をさらに大きく */
+    letter-spacing: 5px;
+}
+
+#winner-message-overlay div:nth-child(2) {
+    font-size: 0.6em; /* 成立役のフォントサイズ調整 */
+    color: #8bc34a; /* 緑色 */
+}
+
+#winner-message-overlay div:last-child {
+    font-size: 0.25em; /* クリックして続ける のフォントサイズ調整 */
+    margin-top: 60px; /* マージンを増やす */
+    color: #ccc;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}

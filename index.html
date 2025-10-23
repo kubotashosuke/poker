@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Game (VS CPU)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initGame()">
+    <div class="game-container">
+        <h1>Poker Game - VS CPU</h1>
+        <div id="status-message" style="color: #ffeb3b; margin-bottom: 20px; font-weight: bold;">ゲーム開始ボタンを押してください。</div>
+
+        <div class="dealer-hand hand">
+            <h2>ディーラー (CPU)</h2>
+            <div class="cards" id="dealer-cards"></div>
+            <div class="chip-info">チップ: <span id="dealer-chips">10000</span></div>
+            </div>
+
+        <div class="community-cards hand">
+            <h2>コミュニティカード (場)</h2>
+            <div class="cards" id="community-cards"></div>
+            <div class="pot-display">ポット: <span id="pot-amount">0</span> チップ</div>
+        </div>
+
+        <hr style="width: 80%; border-color: #555;">
+
+        <div class="player-hand hand" id="player-1-section">
+            <h2>プレイヤー1 (あなた)</h2>
+            <div class="cards" id="player-cards-1"></div>
+            <div class="chip-info">チップ: <span id="player-1-chips">10000</span></div>
+            </div>
+        
+        <div class="game-controls">
+            <button id="deal-button" onclick="startNewGame()">ゲーム開始</button>
+            
+            <div class="action-controls" id="player-1-controls" style="display: none; margin-top: 15px;">
+                <button id="fold-button" onclick="handlePlayerAction('FOLD')">フォールド</button>
+                <button id="check-call-button" onclick="handlePlayerAction('CHECK_CALL')">チェック/コール</button>
+                <button id="bet-raise-button" onclick="handlePlayerAction('BET_RAISE')">ベット/レイズ (200)</button>
+            </div>
+            
+            </div>
+        
+        <div id="game-message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
