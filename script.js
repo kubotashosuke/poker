@@ -77,8 +77,8 @@ function renderCard(card, isHidden = false) {
     
     // フォルダ構造 (poker/からの参照) に合わせてパスを修正
     const imagePath = isHidden
-        ? '../トランプ/card_back.png' 
-        : `../トランプ/card_${card.suit}_${card.value}.png`;
+        ? 'トランプ/card_back.png' 
+        : `トランプ/card_${card.suit}_${card.value}.png`;
         
     cardEl.style.backgroundImage = `url(${imagePath})`;
     return cardEl;
